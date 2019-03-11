@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# Convience script to report cluster usage on a torque-based cluster.
+# Convience script to summarize cluster usage on a torque-based cluster.
 
 qstat -at | awk '
 	$10=="R" {

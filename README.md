@@ -19,3 +19,7 @@ if command -v qsub > /dev/null 2>&1 && \
         alias qsub="qsub -l prologue=${HOME}/.pbs-scripts/prologue.sh -l epilogue=${HOME}/.pbs-scripts/epilogue.sh"
 fi
 ```
+
+## hpcusage
+
+The `hpcusage` script provides a summary of a cluster's queues listing running and queued job counts by user.  To use copy it to a directory on your `PATH` (e.g. `$HOME/bin`) and make it executable.
