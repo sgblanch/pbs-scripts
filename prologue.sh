@@ -30,8 +30,8 @@ Job ID:		$PBS_JOBID
 Username:	$PBS_USER
 Group:		$PBS_GROUP
 Job Name:	$PBS_JOBNAME
-Limits:		$PBS_RLIMITS
+Limits:		$(fold -w 56 <<< "$PBS_RLIMITS" | sed -e '2,$s/^/\t\t/')
 Queue:		$PBS_QUEUE
-Nodes:$(sort $PBS_HOME/aux/$PBS_JOBID | uniq -c | awk '{ printf("%s[%s] ", $2, $1) }' | fold -sw 56 | sed -e 's/^/\t\t/')
+Nodes:		$(sort $PBS_HOME/aux/$PBS_JOBID | uniq -c | awk '{ printf("%s[%s] ", $2, $1) }' | fold -sw 56 | sed -e '2,$s/^/\t\t/')
 ########################################################################
 EOF

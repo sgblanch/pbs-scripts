@@ -30,8 +30,8 @@ cat <<EOF
 ########################################################################
 PBS Epilogue:	$(date)
 Job ID:		$PBS_JOBID
-Limits:		$PBS_RLIMITS
-Resources:	$PBS_RUSED
+Limits:		$(fold -w 56 <<< "$PBS_RLIMITS" | sed -e '2,$s/^/\t\t/')
+Resources:	$(fold -w 56 <<< "$PBS_RUSED" | sed -e '2,$s/^/\t\t/')
 Exit Value:	$PBS_EXITVAL
 ########################################################################
 EOF
